@@ -1,7 +1,9 @@
 package br.com.livraria.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,8 +12,10 @@ import java.util.List;
 
 @Data
 @EqualsAndHashCode
+@AllArgsConstructor
 @Entity
 @Table(name = "CATEGORIA")
+@NoArgsConstructor
 public class Categoria implements Serializable {
 
     private static final long serialVersionUID = 1L;
