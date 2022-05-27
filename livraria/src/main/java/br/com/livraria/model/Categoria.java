@@ -1,6 +1,5 @@
 package br.com.livraria.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,6 @@ import java.util.List;
 
 @Data
 @EqualsAndHashCode
-@AllArgsConstructor
 @Entity
 @Table(name = "CATEGORIA")
 @NoArgsConstructor
@@ -28,4 +26,10 @@ public class Categoria implements Serializable {
 
     @OneToMany(mappedBy = "categoria")
     private List<Livro> livros = new ArrayList<>();
+
+    public Categoria(Long id, String nome, String descricao) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+    }
 }
