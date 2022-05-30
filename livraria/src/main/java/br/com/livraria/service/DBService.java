@@ -23,7 +23,7 @@ public class DBService {
         Categoria categoria3 = new Categoria(null, "Pessoal", "Habito melhores");
         Categoria categoria4 = new Categoria(null, "Informatica", "Programação");
 
-        Livro cleanCode = new Livro(null, "Seja um programado melhor", "Robert Martins", "", categoria1);
+        Livro cleanCode = new Livro(null, "Codigo limpo", "Robert Martins", "Seja um programador melhor", categoria1);
         Livro mindset = new Livro(null, "A nova psicologia do sucesso", "Carol S. Dweck", "a atitude mental com que encaramos a vida", categoria2);
         Livro habito = new Livro(null, "O poder do hábito", "Charles Duhigg", " mostra que a chave para o sucesso é entender como os hábitos", categoria3);
         Livro java = new Livro(null, " Ensino didático: Desenvolvimento e implementação de aplicações", "Saraiva S.C", "Java tem se desenvolvido muito nos últimos anos, fato que a tem colocado entre as linguagens de programação mais usadas.", categoria4);

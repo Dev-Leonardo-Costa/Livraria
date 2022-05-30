@@ -4,12 +4,17 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
 @Data
 @EqualsAndHashCode
 @Entity
 @Table(name = "LIVRO")
+@NoArgsConstructor
 public class Livro implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -21,6 +26,7 @@ public class Livro implements Serializable {
     private String nome_autor;
     private String texto;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
