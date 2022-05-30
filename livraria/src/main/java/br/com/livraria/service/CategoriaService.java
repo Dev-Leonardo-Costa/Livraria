@@ -19,7 +19,13 @@ public class CategoriaService {
         Optional<Categoria> obj = categoriaRepository.findById(id);
         return obj.orElseThrow(() -> new CategoriaNaoEncontradaException("Categoria não encontrada"));
     }
+
     public List<Categoria> buscarTodas() {
         return categoriaRepository.findAll();
+    }
+
+    public Categoria salvar(Categoria categoria) {
+        categoria.setId(null);
+        return categoriaRepository.saveAndFlush(categoria);
     }
 }
