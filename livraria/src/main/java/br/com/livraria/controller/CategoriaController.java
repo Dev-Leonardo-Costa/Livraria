@@ -41,4 +41,9 @@ public class CategoriaController {
                 .toUri();
         return ResponseEntity.created(uri).body(categoria);
     }
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<CategoriaDTO> atualizar(@PathVariable Long id, @RequestBody CategoriaDTO categoriaDTO){
+        Categoria novaCategoria = categoriaService.atualizar(id,categoriaDTO);
+        return ResponseEntity.ok().body(new CategoriaDTO(novaCategoria));
+    }
 }

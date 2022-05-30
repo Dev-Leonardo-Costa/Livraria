@@ -1,5 +1,6 @@
 package br.com.livraria.service;
 
+import br.com.livraria.dtos.CategoriaDTO;
 import br.com.livraria.exceptions.CategoriaNaoEncontradaException;
 import br.com.livraria.model.Categoria;
 import br.com.livraria.repository.CategoriaRepository;
@@ -27,5 +28,12 @@ public class CategoriaService {
     public Categoria salvar(Categoria categoria) {
         categoria.setId(null);
         return categoriaRepository.saveAndFlush(categoria);
+    }
+
+    public Categoria atualizar(Long id, CategoriaDTO categoriaDTO) {
+        Categoria categoriaObj = buscarPorId(id);
+        categoriaObj.setNome(categoriaDTO.getNome());
+        categoriaObj.setDescricao(categoriaDTO.getDescricao());
+        return categoriaRepository.saveAndFlush(categoriaObj);
     }
 }
