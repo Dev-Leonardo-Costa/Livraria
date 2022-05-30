@@ -46,4 +46,10 @@ public class CategoriaController {
         Categoria novaCategoria = categoriaService.atualizar(id,categoriaDTO);
         return ResponseEntity.ok().body(new CategoriaDTO(novaCategoria));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> remover(@PathVariable Long id){
+        categoriaService.remover(id);
+        return ResponseEntity.noContent().build();
+    }
 }

@@ -36,4 +36,9 @@ public class CategoriaService {
         categoriaObj.setDescricao(categoriaDTO.getDescricao());
         return categoriaRepository.saveAndFlush(categoriaObj);
     }
+
+    public void remover(Long id) {
+        buscarPorId(id);
+        categoriaRepository.deleteById(id);
+    }
 }
