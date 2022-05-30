@@ -20,7 +20,7 @@ public class DevTest {
     @Bean
     public boolean instanciaBaseDeDados() {
         if (strategy.equals("create")) {
-            this.dbService.instanciaBaseDeDado();
+            this.dbService.instanciaBaseDeDados();
         }
         return false;
     }

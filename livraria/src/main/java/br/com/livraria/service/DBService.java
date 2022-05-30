@@ -11,12 +11,13 @@ import java.util.Arrays;
 
 @Service
 public class DBService {
+    
     @Autowired
     private CategoriaRepository categoriaRepository;
     @Autowired
     private LivroRepository livroRepository;
 
-    public void instanciaBaseDeDado() {
+    public void instanciaBaseDeDados() {
         Categoria categoria1 = new Categoria(null, "Informatica", "Livro de Ti");
         Categoria categoria2 = new Categoria(null, "Psicologia", "Saúde");
         Categoria categoria3 = new Categoria(null, "Pessoal", "Habito melhores");

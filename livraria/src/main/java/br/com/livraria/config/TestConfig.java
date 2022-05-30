@@ -15,6 +15,6 @@ public class TestConfig {
 
     @Bean
     public void instaciarBaseDeDados(){
-        this.dbService.instanciaBaseDeDado();
+        this.dbService.instanciaBaseDeDados();
     }
 }
