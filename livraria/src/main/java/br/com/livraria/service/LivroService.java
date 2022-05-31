@@ -1,6 +1,7 @@
 package br.com.livraria.service;
 
 import br.com.livraria.exceptions.LivroNaoEncontradoException;
+import br.com.livraria.model.Categoria;
 import br.com.livraria.model.Livro;
 import br.com.livraria.repository.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,4 +42,10 @@ public class LivroService {
         novoLivro.setTexto(obj.getTexto());
     }
 
+    public Livro salvar(Long id_cat, Livro obj) {
+        obj.setId(null);
+        Categoria categoria = categoriaService.buscarPorId(id_cat);
+        obj.setCategoria(categoria);
+        return livroRepository.saveAndFlush(obj);
+    }
 }
