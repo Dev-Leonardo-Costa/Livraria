@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 @Service
 public class DBService {
-    
+
     @Autowired
     private CategoriaRepository categoriaRepository;
     @Autowired
@@ -21,17 +21,20 @@ public class DBService {
         Categoria categoria1 = new Categoria(null, "Informatica", "Livro de Ti");
         Categoria categoria2 = new Categoria(null, "Psicologia", "Saúde");
         Categoria categoria3 = new Categoria(null, "Pessoal", "Habito melhores");
-        Categoria categoria4 = new Categoria(null, "Informatica", "Programação");
+        Categoria categoria4 = new Categoria(null, "Tecnico", "Programação");
 
         Livro cleanCode = new Livro(null, "Codigo limpo", "Robert Martins", "Seja um programador melhor", categoria1);
         Livro mindset = new Livro(null, "A nova psicologia do sucesso", "Carol S. Dweck", "a atitude mental com que encaramos a vida", categoria2);
         Livro habito = new Livro(null, "O poder do hábito", "Charles Duhigg", " mostra que a chave para o sucesso é entender como os hábitos", categoria3);
         Livro java = new Livro(null, " Ensino didático: Desenvolvimento e implementação de aplicações", "Saraiva S.C", "Java tem se desenvolvido muito nos últimos anos, fato que a tem colocado entre as linguagens de programação mais usadas.", categoria4);
+        Livro jogo = new Livro(null, "jogos de testes", "Leonardo s.c", "com java", categoria1);
+
 
         categoria1.getLivros().addAll(Arrays.asList(cleanCode));
         categoria2.getLivros().addAll(Arrays.asList(mindset));
         categoria3.getLivros().addAll(Arrays.asList(habito));
         categoria4.getLivros().addAll(Arrays.asList(java));
+        categoria1.getLivros().addAll(Arrays.asList(jogo));
 
         // salvando um livro e uma categoria no banco
         this.categoriaRepository.saveAll(Arrays.asList(categoria1));

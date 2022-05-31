@@ -1,11 +1,15 @@
 package br.com.livraria.dtos;
 
 import br.com.livraria.model.Categoria;
+import br.com.livraria.model.Livro;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 @Data
+@AllArgsConstructor
 public class CategoriaDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -23,5 +27,4 @@ public class CategoriaDTO implements Serializable {
         this.nome = objCategoria.getNome();
         this.descricao = objCategoria.getDescricao();
     }
-
 }

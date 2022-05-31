@@ -3,7 +3,7 @@ package br.com.livraria.service;
 import br.com.livraria.dtos.CategoriaDTO;
 import br.com.livraria.exceptions.CategoriaNaoEncontradaException;
 
-import br.com.livraria.exceptions.CategoriaNaoPodeSerRemovida;
+import br.com.livraria.exceptions.CategoriaNaoPodeSerRemovidaException;
 import br.com.livraria.model.Categoria;
 import br.com.livraria.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +48,7 @@ public class CategoriaService {
         try {
             categoriaRepository.deleteById(id);
         } catch (DataIntegrityViolationException e) {
-            throw new CategoriaNaoPodeSerRemovida(CATEGORIA_NAO_PODE_SER_REMOVIDA);
+            throw new CategoriaNaoPodeSerRemovidaException(CATEGORIA_NAO_PODE_SER_REMOVIDA);
         }
     }
 }

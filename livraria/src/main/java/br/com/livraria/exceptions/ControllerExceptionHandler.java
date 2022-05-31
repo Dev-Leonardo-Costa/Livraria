@@ -15,18 +15,28 @@ public class ControllerExceptionHandler {
     @ExceptionHandler(CategoriaNaoEncontradaException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     public ResponseEntity<StandardError> categoriaNaoEncontrada(CategoriaNaoEncontradaException e, HttpServletRequest request) {
-        String error = "Categoria não encontrada.";
+        String error = "NOT_FOUND";
         HttpStatus status = HttpStatus.NOT_FOUND;
         StandardError err = new StandardError(Instant.now(), status.value(), error, e.getMessage(),
                 request.getRequestURI());
         return ResponseEntity.status(status).body(err);
     }
 
-    @ExceptionHandler(CategoriaNaoPodeSerRemovida.class)
+    @ExceptionHandler(CategoriaNaoPodeSerRemovidaException.class)
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-    public ResponseEntity<StandardError> dataIntegrityViolationException(CategoriaNaoPodeSerRemovida e, HttpServletRequest request) {
+    public ResponseEntity<StandardError> dataIntegrityViolationException(CategoriaNaoPodeSerRemovidaException e, HttpServletRequest request) {
         String error = "Possui livros associados";
         HttpStatus status = HttpStatus.BAD_REQUEST;
+        StandardError err = new StandardError(Instant.now(), status.value(), error, e.getMessage(),
+                request.getRequestURI());
+        return ResponseEntity.status(status).body(err);
+    }
+
+    @ExceptionHandler(LivroNaoEncontradoException.class)
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public ResponseEntity<StandardError> livroNaoEncontrada(LivroNaoEncontradoException e, HttpServletRequest request) {
+        String error = "NOT_FOUND";
+        HttpStatus status = HttpStatus.NOT_FOUND;
         StandardError err = new StandardError(Instant.now(), status.value(), error, e.getMessage(),
                 request.getRequestURI());
         return ResponseEntity.status(status).body(err);
