@@ -31,4 +31,16 @@ public class LivroController {
         List<LivroDTO> listaDTO = lista.stream().map(obj -> new LivroDTO(obj)).collect(Collectors.toList());
         return ResponseEntity.ok().body(listaDTO);
     }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Livro> atulizar(@PathVariable Long id,@RequestBody Livro obj){
+        Livro novoLivro = livroService.atualizar(id,obj);
+        return ResponseEntity.ok().body(novoLivro);
+    }
+
+    @PatchMapping(value = "/{id}")
+    public ResponseEntity<Livro> atulizarComPatch(@PathVariable Long id, @RequestBody Livro obj) {
+        Livro novoLivro = livroService.atualizar(id, obj);
+        return ResponseEntity.ok().body(novoLivro);
+    }
 }

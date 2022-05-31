@@ -28,4 +28,17 @@ public class LivroService {
         categoriaService.buscarPorId(id_cat);
         return livroRepository.buscarPorCategoria(id_cat);
     }
+
+    public Livro atualizar(Long id, Livro obj) {
+        Livro novoLivro = buscarPorId(id);
+        atualizarDados(novoLivro, obj);
+        return livroRepository.save(novoLivro);
+    }
+
+    private void atualizarDados(Livro novoLivro, Livro obj) {
+        novoLivro.setTitulo(obj.getTitulo());
+        novoLivro.setNome_autor(obj.getNome_autor());
+        novoLivro.setTexto(obj.getTexto());
+    }
+
 }
