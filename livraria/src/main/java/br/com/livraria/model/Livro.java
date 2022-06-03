@@ -4,9 +4,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 import java.io.Serializable;
 
@@ -22,8 +24,14 @@ public class Livro implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty(message = "Campo TITULO é requerido")
+    @Length(min = 3, max = 70, message = "O campo TITULO deve ter 3 a 50 caratecres")
     private String titulo;
+    @NotEmpty(message = "Campo NOME DO AUTOR é requerido")
+    @Length(min = 3, max = 50, message = "O campo NOME DO AUTOR deve ter 3 a 50 caratecres")
     private String nome_autor;
+    @NotEmpty(message = "Campo DESCRIÇÃO é requerido")
+    @Length(min = 3, max = 2000000, message = "O campo DESCRIÇÃO deve ter 3 a 2000000 caratecres")
     private String texto;
 
     @JsonIgnore

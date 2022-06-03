@@ -3,8 +3,10 @@ package br.com.livraria.model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,12 @@ public class Categoria implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotEmpty(message = "Campo NOME é requerido")
+    @Length(min = 3, max = 50, message = "O campo NOME deve ter 3 a 50 caratecres")
     private String nome;
+    @NotEmpty(message = "Campo DESCRIÇÃO é requerido")
+    @Length(min = 3, max = 100, message = "O campo DESCRIÇÃO deve ter 3 a 50 caratecres")
     private String descricao;
 
     @OneToMany(mappedBy = "categoria")

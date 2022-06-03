@@ -17,7 +17,7 @@ import java.util.Optional;
 public class CategoriaService {
 
     private static final String CATEGORIA_NAO_ENCONTRADA = "Categoria não encontrada";
-    private static final String CATEGORIA_NAO_PODE_SER_REMOVIDA = "Categoria não pode ser removida";
+    private static final String CATEGORIA_NAO_PODE_SER_REMOVIDA = "Categoria não pode ser removida! Possui livros associados";
 
     @Autowired
     private CategoriaRepository categoriaRepository;

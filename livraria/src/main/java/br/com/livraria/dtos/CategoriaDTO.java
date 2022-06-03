@@ -1,10 +1,8 @@
 package br.com.livraria.dtos;
 
 import br.com.livraria.model.Categoria;
-import br.com.livraria.model.Livro;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
