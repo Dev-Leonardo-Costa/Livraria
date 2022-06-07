@@ -1,12 +1,11 @@
 package br.com.livraria.exceptions;
 
-import javax.persistence.PersistenceException;
-
-public class LivroNaoEncontradoException extends PersistenceException {
+public class LivroNaoEncontradoException extends RuntimeException {
 
     public LivroNaoEncontradoException() {
         super();
     }
+
     public LivroNaoEncontradoException(String message) {
         super(message);
     }

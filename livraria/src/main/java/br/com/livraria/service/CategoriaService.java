@@ -1,8 +1,8 @@
 package br.com.livraria.service;
 
 import br.com.livraria.dtos.CategoriaDTO;
-import br.com.livraria.exceptions.CategoriaNaoEncontradaException;
 
+import br.com.livraria.exceptions.CategoriaNaoEncontradaException;
 import br.com.livraria.exceptions.CategoriaNaoPodeSerRemovidaException;
 import br.com.livraria.model.Categoria;
 import br.com.livraria.repository.CategoriaRepository;
@@ -24,7 +24,8 @@ public class CategoriaService {
 
     public Categoria buscarPorId(Long id) {
         Optional<Categoria> obj = categoriaRepository.findById(id);
-        return obj.orElseThrow(() -> new CategoriaNaoEncontradaException(CATEGORIA_NAO_ENCONTRADA));
+        return obj.orElseThrow(
+                () -> new CategoriaNaoEncontradaException(CATEGORIA_NAO_ENCONTRADA));
     }
 
     public List<Categoria> buscarTodas() {
