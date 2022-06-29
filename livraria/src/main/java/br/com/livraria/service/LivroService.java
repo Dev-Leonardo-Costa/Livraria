@@ -48,4 +48,9 @@ public class LivroService {
         obj.setCategoria(categoria);
         return livroRepository.saveAndFlush(obj);
     }
+
+    public void remover(Long id) {
+        Livro obj = buscarPorId(id);
+        livroRepository.delete(obj);
+    }
 }

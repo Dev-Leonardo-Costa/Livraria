@@ -41,7 +41,7 @@ public class ControllersExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<StandardError> validationErro(MethodArgumentNotValidException e, HttpServletRequest request) {
         HttpStatus status = HttpStatus.BAD_REQUEST;
-        ValidationErro erros = new ValidationErro(Instant.now(), valueOf(status.value()), "Erro na validação dos campos");
+        ValidationErro erros = new ValidationErro(Instant.now(), valueOf(status.value()), "Erro nas validações dos campos");
 
         for (FieldError x : e.getBindingResult().getFieldErrors()) {
             erros.adicionarErros(x.getField(), x.getDefaultMessage());

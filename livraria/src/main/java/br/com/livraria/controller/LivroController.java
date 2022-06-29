@@ -51,4 +51,10 @@ public class LivroController {
                 .toUri();
         return ResponseEntity.created(uri).body(novoLivro);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> remover(@PathVariable Long id){
+        livroService.remover(id);
+        return ResponseEntity.noContent().build();
+    }
 }
